@@ -1,0 +1,37 @@
+/* 96. 不同的二叉搜索树
+ * 难度：中等
+ */
+
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+class Solution {
+public:
+    int numTrees(int n) {
+        vector<int> dp(n+1, 0);
+
+        if(!n) return 0;
+        
+        dp[0] = 1;
+        dp[1] = 1;
+
+        for(int i = 2; i <= n; ++i) {
+            for(int j = 0; j < i; ++j) {
+                dp[i] += dp[i-j-1]*dp[j];
+            }
+        }
+
+        return dp[n];
+    }
+};
+
+int main(void)
+{
+    auto s = Solution();
+    auto result = s.numTrees(1);
+
+    std::cout << result;
+}

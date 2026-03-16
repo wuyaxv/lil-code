@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-PROJECT_NAME := 1079
+PROJECT_NAME := 96
 LANGUAGE := cpp
 
 SHELL := /bin/bash
