@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-PROJECT_NAME := 151
+PROJECT_NAME := 1143
 LANGUAGE := cpp
 
 SHELL := /bin/bash
@@ -18,7 +18,7 @@ endif
 
 CXX := clang++
 CXXFLAGS := -std=gnu++17 -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion
-DEBUG_CXXFLAGS := -fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all -D_FORTIFY_SOURCE=2 -g
+DEBUG_CXXFLAGS := -fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all -D_FORTIFY_SOURCE=2
 DEBUG_CXXFLAGS += -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 
 # CC_SOURCES := $(wildcard *.cc)

@@ -1,0 +1,21 @@
+from typing import List
+from pprint import pprint
+import math
+
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        maximum_to_put = math.floor(amount/min(coins))
+
+        dp = [[0 for i in range(len(coins)+1)] for _ in range(maximum_to_put+1)]
+
+        for i in range(1, maximum_to_put+1):
+            for j in range(1, len(coins)+1):
+                if dp[i-1][j]+coins[j-1] <= amount:
+
+
+        pprint(dp)
+
+if __name__ == '__main__':
+    s = Solution()
+    s.change(5, [1,2,5])
+        
