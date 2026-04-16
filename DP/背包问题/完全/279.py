@@ -1,5 +1,6 @@
 from typing import List
 import math
+from pprint import pprint
 
 class Solution:
     def numSquares(self, n: int) -> int:
@@ -18,31 +19,37 @@ class Solution:
                 else:
                     total.append(sum(dp[i]))
                     break
+
+        res = []
+        def back_tracking(dp, i, path):
+            if i == 0:
+                res.append(path.copy())
+                return
+        
+            for j in range(sqrt_nums-1, -1, -1):
+                if dp[i][j] != 0: 
+                    path.append(nums[j])
+                    i -= nums[j]
+                    back_tracking(dp, i, path)
+                    i += nums[j]
+                    path.pop()
+
         
         # find the path
         path = []
-
-        value = n # value初始值一定不是0，因为至少全1满足题意
-        next_i: int = n
-        next_j: int = nums[-2]
-        while value != 0:
-            current_j = next_j
-            value -= nums[next_j]
-            path.append(nums[next_j])
-            for j in range(next_j, -1, -1):
-                if dp[next_i][j] != 0:
-                    next_j = j
-                    break
-
-            
-
-
-
-
+        i = n
+        back_tracking(dp, i, path)
+        minimum = 200000
+        for i in res:
+            length = len(i)
+            minimum = length if length < minimum else minimum
+        pprint(dp)
+        return minimum
 
 
 if __name__ == '__main__':
-    n = 7
+    n = 12
     s = Solution()
     ans = s.numSquares(n)
+    print(ans)
 
